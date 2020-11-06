@@ -1,9 +1,10 @@
 <template>
-  <v-row class="my-auto">
+  <v-row >
     <v-col>
       <v-card
           class="mx-auto my-12"
-          max-width="500"
+          width="500"
+          dark
       >
 
         <v-img v-if="typeof currentSong.cover !== 'undefined'"
@@ -28,7 +29,10 @@
             <v-col cols="3"><p>{{formatDuration}}</p></v-col>
           </v-row>
 
-          <p v-if="typeof currentSong.title !== 'undefined'">{{ currentSong.title }}</p>
+          <div v-if="typeof currentSong.title !== 'undefined'">
+            <p >{{ currentSong.title }}</p>
+            <p >{{ currentSong.artist}}</p>
+          </div>
           <v-btn rounded @click="prev">
             <v-icon>mdi-skip-previous-outline</v-icon>
           </v-btn>
@@ -44,7 +48,7 @@
         </v-card-text>
         <v-card-actions v-if="typeof currentSong.cover !== 'undefined'">
           <v-row>
-            <v-col>
+            <v-col cols="6">
               <v-btn rounded @click="changeShuffle">
                 <v-icon v-if="!this.shuffle">mdi-shuffle-disabled</v-icon>
                 <v-icon v-else>mdi-shuffle</v-icon>
@@ -54,7 +58,7 @@
                 <v-icon v-else>mdi-repeat-once</v-icon>
               </v-btn>
             </v-col>
-            <v-col>
+            <v-col cols="6">
               <v-slider
                   color="#42b983"
                   v-model="volume"
@@ -95,28 +99,33 @@ export default {
       songs: [
         {
           title: 'But en or',
+          artist: 'Kalash Criminel X Damso',
           src: require('@/assets/audio/But_en_or.mp3'),
           cover: require('@/assets/cover/But_en_or.jpg')
         },
         {
           title: 'Fler maler',
+          artist: 'Oussanousava',
           src: require('@/assets/audio/Fler_maler.mp3'),
           cover: require('@/assets/cover/Fler_maler.jpeg')
         },
         {
           title: 'Horizontal',
+          artist: 'Damso',
           src: require('@/assets/audio/Damso_Horizontal.mp3'),
           cover: require('@/assets/cover/qalf.jpg')
         },
         {
           title: 'Rien d\'Spécial',
-          src: require('@/assets/audio/Népal_Rien_d_Spécial.mp3'),
+          artist: 'Nepal',
+          src: require('@/assets/audio/Népal_Rien_dSpécial.mp3'),
           cover: require('@/assets/cover/nepal.jpeg')
         },
         {
-          title: 'Atch Memories',
-          src: require('@/assets/audio/Atch_Memories.mp3'),
-          cover: require('@/assets/cover/cover.jpeg')
+          title: 'Freeze Raël',
+          artist: 'Freeze Corleone',
+          src: require('@/assets/audio/Freeze_Raël.mp3'),
+          cover: require('@/assets/cover/LMF.jpg')
         },
       ]
     }

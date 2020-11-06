@@ -1,4 +1,4 @@
-<template>
+<template style="background-color: gray">
   <div id="app">
     <v-app
         dark

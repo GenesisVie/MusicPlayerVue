@@ -6,22 +6,23 @@
     >
       <v-card
           @click="choose(song)"
-          :img="song.cover"
-          class="mx-auto"
+          dark
       >
         <div class="d-flex flex-no-wrap justify-space-between">
-          <div class="ma-3">
-            <v-card-title style="color:whitesmoke" v-text="song.title">
-            </v-card-title>
+          <div>
+            <v-card-title
+                class="headline"
+                v-text="song.title"
+            ></v-card-title>
+
+            <v-card-subtitle v-text="song.artist"></v-card-subtitle>
           </div>
           <v-avatar
               class="ma-3"
               size="125"
               tile
           >
-            <v-img
-                src="song.cover"
-            ></v-img>
+            <v-img :src="song.cover"></v-img>
           </v-avatar>
         </div>
       </v-card>
