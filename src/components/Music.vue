@@ -1,5 +1,5 @@
 <template>
-  <v-row >
+  <v-row>
     <v-col>
       <v-card
           class="mx-auto my-12"
@@ -14,10 +14,9 @@
         ></v-img>
         <v-card-text align="center" justify="center">
           <v-row v-if="typeof currentSong.cover !== 'undefined'">
-            <v-col cols="3">{{formatCurrentTime}}</v-col>
+            <v-col cols="3">{{ formatCurrentTime }}</v-col>
             <v-col cols="6">
               <v-slider
-
                   color="#42b983"
                   v-model="currentTime"
                   @change="advanceTime"
@@ -26,25 +25,26 @@
               >
               </v-slider>
             </v-col>
-            <v-col cols="3"><p>{{formatDuration}}</p></v-col>
+            <v-col cols="3"><p>{{ formatDuration }}</p></v-col>
           </v-row>
 
           <div v-if="typeof currentSong.title !== 'undefined'">
-            <p >{{ currentSong.title }}</p>
-            <p >{{ currentSong.artist}}</p>
+            <p>{{ currentSong.title }}</p>
+            <p>{{ currentSong.artist }}</p>
           </div>
-          <v-btn rounded @click="prev">
-            <v-icon>mdi-skip-previous-outline</v-icon>
-          </v-btn>
-          <v-btn v-if="!this.isPlaying" @click="play" rounded>
-            <v-icon>mdi-play-outline</v-icon>
-          </v-btn>
-          <v-btn v-else @click="pause" rounded>
-            <v-icon>mdi-pause</v-icon>
-          </v-btn>
-          <v-btn @click="next" rounded>
-            <v-icon>mdi-skip-next-outline</v-icon>
-          </v-btn>
+          <Controls
+              :is-playing="isPlaying"
+              :current-song="currentSong"
+              :songs="songs"
+              :player="player"
+              :selected-song="selectedSong"
+              :repeat="repeat"
+              :shuffle="shuffle"
+              @playing="changePlaying"
+              @selected="changeSelected"
+              @current="changeCurrent"
+          >
+          </Controls>
         </v-card-text>
         <v-card-actions v-if="typeof currentSong.cover !== 'undefined'">
           <v-row>
@@ -80,14 +80,14 @@
 
 <script>
 import ListSong from "@/components/ListSong";
+import Controls from "@/components/Controls";
 
 export default {
   name: "Music",
-  components: {ListSong},
+  components: {Controls, ListSong},
   data() {
     return {
       isPlaying: false,
-      index: 0,
       selectedSong: {},
       currentSong: {},
       player: new Audio(),
@@ -139,65 +139,28 @@ export default {
     },
     formatCurrentTime() {
       const m = Math.floor(this.currentTime % 3600 / 60).toString().padStart(2, '0'),
-          s = Math.floor(this.currentTime% 60).toString().padStart(2, '0');
+          s = Math.floor(this.currentTime % 60).toString().padStart(2, '0');
 
       return m + ':' + s;
     }
   },
   methods: {
-    play() {
-      if (typeof this.currentSong.title === 'undefined' || typeof this.selectedSong.title === 'undefined') {
-        this.selectedSong = this.songs[0]
-      }
-      if (this.currentSong !== this.selectedSong && typeof this.selectedSong !== 'undefined') {
-        this.player.pause()
-        this.player.src = this.selectedSong.src
-      }
-      if (this.player.src !== '') {
-        this.currentSong = this.selectedSong
-        this.isPlaying = true
-        this.player.play()
-      }
+    changePlaying(val) {
+      this.isPlaying = val
+      this.$forceUpdate()
     },
-    pause() {
-      this.isPlaying = false
-      this.player.pause()
+    changeSelected(val) {
+      this.selectedSong = val
+      this.$forceUpdate()
     },
-    next() {
-      if (!this.shuffle) {
-        this.index = this.songs.indexOf(this.currentSong)
-        this.index++
-        if (this.index >= this.songs.length) {
-          this.index = 0;
-        }
-        this.selectedSong = this.songs[this.index]
-        this.play()
-      } else {
-        this.index = this.songs.indexOf(this.currentSong)
-        for (let ok = false; !ok;) {
-          const newIndex = Math.floor(Math.random() * Math.floor(this.songs.length))
-          if (newIndex !== this.index) {
-            ok = true
-            this.index = newIndex
-          }
-        }
-        this.selectedSong = this.songs[this.index]
-        this.play()
-      }
-    },
-    prev() {
-      this.index = this.songs.indexOf(this.currentSong)
-      this.index--
-      if (this.index < 0) {
-        this.index = this.songs.length - 1;
-      }
-      this.selectedSong = this.songs[this.index]
-      this.play()
+    changeCurrent(val) {
+      this.currentSong = val
+      this.$forceUpdate()
     },
     changeSong(songName) {
-      this.pause()
+      this.player.pause()
       this.selectedSong = songName
-      this.play()
+      this.player.play()
     },
     advanceTime() {
       this.player.currentTime = this.currentTime
