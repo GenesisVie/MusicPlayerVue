@@ -8,9 +8,11 @@
                  dark
                  id="nav" class="d-flex align-center"
       >
-        <router-link to="/">Home</router-link>
+        <router-link to="/">Player</router-link>
         |
-        <router-link to="/portfolio">Portfolio</router-link>
+        <router-link to="/addsong">Ajouter une musique</router-link>
+        |
+        <router-link to="/detail/0">Detail Artiste</router-link>
       </v-app-bar>
       <v-main>
         <router-view/>

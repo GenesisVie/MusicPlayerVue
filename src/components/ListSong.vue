@@ -8,6 +8,13 @@
           @click="choose(song)"
           dark
       >
+        <v-btn
+            color="white"
+            icon
+            @click="goDetail(index)"
+        >
+          <v-icon>mdi-information</v-icon>
+        </v-btn>
         <div class="d-flex flex-no-wrap justify-space-between">
           <div>
             <v-card-title
@@ -25,7 +32,14 @@
             <v-img :src="require('@/assets/cover/'+song.cover)"></v-img>
           </v-avatar>
         </div>
+        <v-btn
+            color="white"
+            icon
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
       </v-card>
+
     </v-col>
   </v-row>
 </template>
@@ -39,6 +53,10 @@ export default {
   methods: {
     choose(songName) {
       this.$emit('song', songName)
+    },
+    goDetail(id) {
+      this.$router.push({name: 'Detail',
+        params: {id: id}})
     }
   }
 }

@@ -30,19 +30,25 @@ export default {
   data(){
     return {
       index: 0,
+      selected: {}
+    }
+  },
+  watch: {
+    selectedSong(){
+      this.selected = this.selectedSong
     }
   },
   methods: {
     play() {
-      if (typeof this.currentSong.title === 'undefined' || typeof this.selectedSong.title === 'undefined') {
+      if (typeof this.currentSong.title === 'undefined' || typeof this.selected.title === 'undefined') {
         this.$emit('selected', this.songs[0])
       }
-      if (this.currentSong !== this.selectedSong && typeof this.selectedSong.src !== 'undefined') {
+      if (this.currentSong !== this.selected && typeof this.selected.src !== 'undefined') {
         this.player.pause()
-        this.player.src = require('@/assets/audio/' + this.selectedSong.src)
+        this.player.src = require('@/assets/audio/' + this.selected.src)
       }
       if (this.player.src !== '') {
-        this.$emit('current', this.selectedSong)
+        this.$emit('current', this.selected)
         this.$emit('playing', true)
         this.player.play()
       }

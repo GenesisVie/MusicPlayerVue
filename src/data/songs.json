@@ -1,32 +1,42 @@
 [
   {
+    "title": "Freeze Raël",
+    "artist": "Freeze Corleone",
+    "src": "Freeze_Raël.mp3",
+    "description": "Freeze Corleone, pseudonyme de Issa Lorenzo Diakhaté, né le 6 juin 1992 aux Lilas, en Seine-Saint-Denis, est un rappeur, auteur-compositeur-interprète et producteur français. Il est également le fondateur du collectif 667 (Ligue des Ombres, la Secte ou Mangemort Squad) et du CFR (en trio avec Norsacce et Osirus Jack). Il a vécu une partie de sa vie au Canada et habite à Dakar au Sénégal.",
+    "cover": "LMF.jpg",
+    "artistCover": "freeze-corleone.jpg"
+  },
+  {
     "title": "But en or",
     "artist": "Kalash Criminel X Damso",
     "src": "But_en_or.mp3",
-    "cover": "But_en_or.jpg"
+    "description": "Kalash Criminel, de son vrai nom Amira Kiziamina, né le 14 février 1995 à Kinshasa, au Zaïre (Aujourd'hui : République démocratique du Congo depuis 1997), est un rappeur et parolier français. Il est signé sur le label Def Jam du 20 juillet 2016 jusqu'au lancement de son propre label discographique, Sale Sonorité Records, au mois de septembre 2016. À cette même période, il est approché par le rappeur Kaaris, avec lequel il sort, le 22 juillet 2016, le morceau qui va donner un réel coup de départ à sa carrière : Arrêt du cœur. ",
+    "cover": "But_en_or.jpg",
+    "artistCover": "kalashcriminel.jpg"
   },
   {
     "title": "Fler maler",
     "artist": "Oussanousava",
     "src": "Fler_maler.mp3",
-    "cover": "Fler_maler.jpeg"
+    "description": "Ousanousava (Où allons-nous en créole réunionnais) est un groupe de musique réunionnais créé par Frédéric Joron, fils de Jules Joron, à Saint-Pierre en 1984. Sur les premiers albums le nom du groupe est orthographié Ousa Nousava ou encore Ousa-Nousava.da",
+    "cover": "Fler_maler.jpeg",
+    "artistCover": "oussanousava.jpg"
   },
   {
     "title": "Horizontal",
     "artist": "Damso",
     "src": "Damso_Horizontal.mp3",
-    "cover": "qalf.jpg"
+    "description": "Damso, de son vrai nom William Kalubi Mwamba, né le 10 mai 1992 à Kinshasa (Zaïre, actuelle République démocratique du Congo), est un rappeur et auteur-compositeur-interprète belgo-congolais. n",
+    "cover": "qalf.jpg",
+    "artistCover": "damso.jpg"
   },
   {
-    "title": "Rien d\"Spécial",
+    "title": "Rien d'Spécial",
     "artist": "Nepal",
-    "src": "Népal_Rien_dSpécial.mp3",
-    "cover": "nepal.jpeg"
-  },
-  {
-    "title": "Freeze Raël",
-    "artist": "Freeze Corleone",
-    "src": "Freeze_Raël.mp3",
-    "cover": "LMF.jpg"
+    "src": "nepal_rien_dspecial.mp3",
+    "description": "Népal, de son vrai nom Clément Di Fiore, né le 12 octobre 1990 dans le 14e arrondissement de Paris et mort le 9 novembre 2019 à Clichy dans les Hauts-de-Seine, est un rappeur et beatmaker français. Il est également connu sous les noms KLM et GrandMaster Splinter. Membre du collectif de la 75e Session, il forme avec Doums le duo 2Fingz. Il est également proche du collectif L'Entourage, du groupe 1995 et du projet Les Gars Laxistes. ",
+    "cover": "nepal.jpeg",
+    "artistCover": "nepal.jpg"
   }
 ]

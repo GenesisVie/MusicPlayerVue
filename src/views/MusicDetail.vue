@@ -1,19 +1,51 @@
 <template>
-  <div>
-    <h3>PortfolioGang {{$route.params.test}}</h3>
-    <v-btn @click="goLoad">Load</v-btn>
-    <router-view></router-view>
-  </div>
+  <v-container
+  >
+    <v-card
+        elevation="24"
+        outlined
+        class="mx-auto my-12"
+        width="1000"
+        tile
+        dark
+    >
+      <v-card-title
+          align="center"
+      >
+        {{ this.artist.artist }}
+      </v-card-title>
+      <v-avatar
+          class="ma-3"
+          size="300"
+          tile
+      >
+        <v-img :src="require('@/assets/artistCover/'+this.artist.artistCover)"></v-img>
+      </v-avatar>
+      <v-spacer></v-spacer>
+      <v-card-text>
+        <p
+            class="text-justify">
+          {{this.artist.description}}
+        </p>
+
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
+import songsJsons from "../data/songs.json"
+
 export default {
-name: "Portfolio",
-  methods: {
-  goLoad() {
-    this.$router.push({name: 'comments',
-    params: {prenom: this.$route.params.prenom}})
-  }
+  name: "MusicDetail",
+  data() {
+    return {
+      songs: songsJsons,
+      artist: {}
+    }
+  },
+  mounted() {
+    this.artist = this.songs[this.$route.params.id]
   }
 }
 </script>

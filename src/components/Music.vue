@@ -33,6 +33,7 @@
             <p>{{ currentSong.artist }}</p>
           </div>
           <Controls
+              ref="controls"
               :is-playing="isPlaying"
               :current-song="currentSong"
               :songs="songs"
@@ -125,9 +126,9 @@ export default {
       this.currentSong = val
     },
     changeSong(songName) {
-      this.player.pause()
+      this.$refs.controls.pause()
       this.selectedSong = songName
-      this.player.play()
+      this.$refs.controls.play()
     },
     advanceTime() {
       this.player.currentTime = this.currentTime
@@ -160,12 +161,16 @@ export default {
     this.player.addEventListener('ended', () => {
       if (this.repeat) {
         this.player.loop
-        this.play()
+        this.$refs.controls.play()
       } else {
-        this.next()
+        this.$refs.controls.next()
       }
     })
   },
+  beforeDestroy() {
+    console.log('oui')
+    this.player.paused
+  }
 }
 </script>
 
