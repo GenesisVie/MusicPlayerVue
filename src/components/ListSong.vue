@@ -22,7 +22,7 @@
               size="125"
               tile
           >
-            <v-img :src="song.cover"></v-img>
+            <v-img :src="require('@/assets/cover/'+song.cover)"></v-img>
           </v-avatar>
         </div>
       </v-card>

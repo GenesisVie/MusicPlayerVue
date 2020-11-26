@@ -10,7 +10,7 @@
         <v-img v-if="typeof currentSong.cover !== 'undefined'"
                class="white--text align-end"
                contain
-               :src="currentSong.cover"
+               :src="require('@/assets/cover/'+currentSong.cover)"
         ></v-img>
         <v-card-text align="center" justify="center">
           <v-row v-if="typeof currentSong.cover !== 'undefined'">
@@ -81,6 +81,7 @@
 <script>
 import ListSong from "@/components/ListSong";
 import Controls from "@/components/Controls";
+import jsonSongs from "@/data/songs.json"
 
 export default {
   name: "Music",
@@ -96,38 +97,7 @@ export default {
       currentTime: 0,
       shuffle: false,
       repeat: false,
-      songs: [
-        {
-          title: 'But en or',
-          artist: 'Kalash Criminel X Damso',
-          src: require('@/assets/audio/But_en_or.mp3'),
-          cover: require('@/assets/cover/But_en_or.jpg')
-        },
-        {
-          title: 'Fler maler',
-          artist: 'Oussanousava',
-          src: require('@/assets/audio/Fler_maler.mp3'),
-          cover: require('@/assets/cover/Fler_maler.jpeg')
-        },
-        {
-          title: 'Horizontal',
-          artist: 'Damso',
-          src: require('@/assets/audio/Damso_Horizontal.mp3'),
-          cover: require('@/assets/cover/qalf.jpg')
-        },
-        {
-          title: 'Rien d\'Spécial',
-          artist: 'Nepal',
-          src: require('@/assets/audio/Népal_Rien_dSpécial.mp3'),
-          cover: require('@/assets/cover/nepal.jpeg')
-        },
-        {
-          title: 'Freeze Raël',
-          artist: 'Freeze Corleone',
-          src: require('@/assets/audio/Freeze_Raël.mp3'),
-          cover: require('@/assets/cover/LMF.jpg')
-        },
-      ]
+      songs: jsonSongs
     }
   },
   computed: {
@@ -147,15 +117,12 @@ export default {
   methods: {
     changePlaying(val) {
       this.isPlaying = val
-      this.$forceUpdate()
     },
     changeSelected(val) {
       this.selectedSong = val
-      this.$forceUpdate()
     },
     changeCurrent(val) {
       this.currentSong = val
-      this.$forceUpdate()
     },
     changeSong(songName) {
       this.player.pause()

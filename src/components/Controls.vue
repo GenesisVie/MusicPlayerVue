@@ -39,7 +39,7 @@ export default {
       }
       if (this.currentSong !== this.selectedSong && typeof this.selectedSong.src !== 'undefined') {
         this.player.pause()
-        this.player.src = this.selectedSong.src
+        this.player.src = require('@/assets/audio/' + this.selectedSong.src)
       }
       if (this.player.src !== '') {
         this.$emit('current', this.selectedSong)
