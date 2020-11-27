@@ -87,8 +87,9 @@ export default {
       }
     },
     isLiked(id) {
+
       if (this.likedSongs.length > 0) {
-        return this.likedSongs.includes(this.songs[id], 0)
+        return this.likedSongs.some( song => song.title === this.songs[id].title)
       }
     },
   },
@@ -102,13 +103,12 @@ export default {
     }
   },
   watch: {
-    //TODO: faire marcher les datas avec le localstorage
-    // likedSongs: {
-    //   handler() {
-    //     localStorage.setItem('likedSongs', JSON.stringify(this.likedSongs))
-    //   },
-    //   deep: true
-    // },
+    likedSongs: {
+      handler() {
+        localStorage.setItem('likedSongs', JSON.stringify(this.likedSongs))
+      },
+      deep: true
+    },
     onlyLikes() {
       if (this.onlyLikes) {
         this.$emit('likedSongs', this.likedSongs)
