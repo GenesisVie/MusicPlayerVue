@@ -6,6 +6,7 @@
       dense
       v-model="inputText"
       @change="pushSearch"
+      clearable
   ></v-text-field>
 </template>
 
@@ -39,7 +40,7 @@ export default {
         return song.title.toLowerCase().indexOf(this.inputText.toLowerCase()) !== -1
       })
     },
-  }
+  },
 }
 </script>
 

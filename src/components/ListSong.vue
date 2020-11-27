@@ -1,13 +1,13 @@
 <template>
   <v-row dense>
     <v-col
-    cols="12"
+        cols="12"
     >
 
       <v-checkbox
-        label="Afficher les sons likés uniquement"
-        v-model="onlyLikes"
-        color="#1DB954"
+          label="Afficher les sons likés uniquement"
+          v-model="onlyLikes"
+          color="#1DB954"
       >
       </v-checkbox>
     </v-col>
@@ -49,7 +49,7 @@
             @click="addLike(index)"
         >
           <v-icon v-if="!isLiked(index)">mdi-heart-outline</v-icon>
-          <v-icon style="color: #1DB954" v-else >mdi-heart</v-icon>
+          <v-icon style="color: #1DB954" v-else>mdi-heart</v-icon>
         </v-btn>
       </v-card>
 
@@ -63,8 +63,8 @@ export default {
   props: {
     songs: Array
   },
-  data(){
-    return{
+  data() {
+    return {
       likedSongs: [],
       onlyLikes: false
     }
@@ -74,14 +74,16 @@ export default {
       this.$emit('song', songName)
     },
     goDetail(id) {
-      this.$router.push({name: 'Detail',
-        params: {id: id}})
+      this.$router.push({
+        name: 'Detail',
+        params: {id: id}
+      })
     },
     addLike(id) {
-      if (!this.isLiked(id)){
+      if (!this.isLiked(id)) {
         this.likedSongs.push(this.songs[id])
-      }else{
-        this.likedSongs.splice(id,1)
+      } else {
+        this.likedSongs.splice(id, 1)
       }
     },
     isLiked(id) {
@@ -90,11 +92,27 @@ export default {
       }
     },
   },
+  mounted() {
+    if (localStorage.getItem('likedSongs')) {
+      try {
+        this.likedSongs = JSON.parse(localStorage.getItem('likedSongs'));
+      } catch (e) {
+        localStorage.removeItem('likedSongs');
+      }
+    }
+  },
   watch: {
-    onlyLikes(){
-      if (this.onlyLikes){
+    //TODO: faire marcher les datas avec le localstorage
+    // likedSongs: {
+    //   handler() {
+    //     localStorage.setItem('likedSongs', JSON.stringify(this.likedSongs))
+    //   },
+    //   deep: true
+    // },
+    onlyLikes() {
+      if (this.onlyLikes) {
         this.$emit('likedSongs', this.likedSongs)
-      }else{
+      } else {
         this.$emit('likedSongs', [])
       }
     }
