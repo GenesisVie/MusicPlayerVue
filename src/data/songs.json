@@ -8,14 +8,6 @@
     "artistCover": "freeze-corleone.jpg"
   },
   {
-    "title": "But en or",
-    "artist": "Kalash Criminel X Damso",
-    "src": "But_en_or.mp3",
-    "description": "Kalash Criminel, de son vrai nom Amira Kiziamina, né le 14 février 1995 à Kinshasa, au Zaïre (Aujourd'hui : République démocratique du Congo depuis 1997), est un rappeur et parolier français. Il est signé sur le label Def Jam du 20 juillet 2016 jusqu'au lancement de son propre label discographique, Sale Sonorité Records, au mois de septembre 2016. À cette même période, il est approché par le rappeur Kaaris, avec lequel il sort, le 22 juillet 2016, le morceau qui va donner un réel coup de départ à sa carrière : Arrêt du cœur. ",
-    "cover": "But_en_or.jpg",
-    "artistCover": "kalashcriminel.jpg"
-  },
-  {
     "title": "Fler maler",
     "artist": "Oussanousava",
     "src": "Fler_maler.mp3",
@@ -24,12 +16,52 @@
     "artistCover": "oussanousava.jpg"
   },
   {
+    "title": "Stupéfiant Et Noir",
+    "artist": "Alpha Wann",
+    "src": "stupéfiantetnoir.mp3",
+    "description": "Alpha Omar Wann, dit Alpha Wann, né le 2 juillet 1989 dans le 14e arrondissement de Paris, est un rappeur (auteur-interprète) français. Il est membre du groupe 1995 et du collectif L'Entourage.\n\nMembre fondateur de 1995, Alpha Wann est un pilier du groupe avec Nekfeu. Après s'être lancé dans une carrière en solo, il sort trois EP successifs, la trilogie Alph Lauren. Le 21 septembre 2018, Wann publie son premier album, Une main lave l’autre (UMLA).\n\nAlpha Wann participe au Colors Show en 2019 avec son titre Pistolet Rose 2. ",
+    "cover": "umla.jpeg",
+    "artistCover": "alpha.jpg"
+  },
+  {
+    "title": "Moins un",
+    "artist": "Dinos X Nekfeu",
+    "src": "Moinsun.mp3",
+    "description": "Dinos, anciennement Dinos Punchlinovic, né le 30 novembre 1993 à Douala, est un rappeur français originaire de La Courneuve, en Seine-Saint-Denis. Il est considéré par beaucoup comme l'un des meilleurs lyricistes de la nouvelle génération du rap français. ",
+    "cover": "dinos.jpg",
+    "artistCover": "dinos.jpg"
+  },
+  {
+    "title": "But en or",
+    "artist": "Kalash Criminel X Damso",
+    "src": "But_en_or.mp3",
+    "description": "Kalash Criminel, de son vrai nom Amira Kiziamina, né le 14 février 1995 à Kinshasa, au Zaïre (Aujourd'hui : République démocratique du Congo depuis 1997), est un rappeur et parolier français. Il est signé sur le label Def Jam du 20 juillet 2016 jusqu'au lancement de son propre label discographique, Sale Sonorité Records, au mois de septembre 2016. À cette même période, il est approché par le rappeur Kaaris, avec lequel il sort, le 22 juillet 2016, le morceau qui va donner un réel coup de départ à sa carrière : Arrêt du cœur. ",
+    "cover": "But_en_or.jpg",
+    "artistCover": "kalashcriminel.jpg"
+  },
+  {
     "title": "Horizontal",
     "artist": "Damso",
     "src": "Damso_Horizontal.mp3",
     "description": "Damso, de son vrai nom William Kalubi Mwamba, né le 10 mai 1992 à Kinshasa (Zaïre, actuelle République démocratique du Congo), est un rappeur et auteur-compositeur-interprète belgo-congolais. n",
     "cover": "qalf.jpg",
     "artistCover": "damso.jpg"
+  },
+  {
+    "title": "Mi lé en l'air",
+    "artist": "Arum",
+    "src": "Mi_le_en_lair.mp3",
+    "description": "Dalon dakour ",
+    "cover": "arum.jpg",
+    "artistCover": "arum.jpg"
+  },
+  {
+    "title": "Comme à la maison",
+    "artist": " Jolem Sanchez",
+    "src": "Comme_à_la_maison.mp3",
+    "description": "Shatta shatta",
+    "cover": "cm.jpg",
+    "artistCover": "cm.jpg"
   },
   {
     "title": "Rien d'Spécial",
