@@ -40,10 +40,26 @@ export default {
   },
   methods: {
     play() {
-      if (typeof this.currentSong.title === 'undefined' || typeof this.selected.title === 'undefined') {
+      console.log('---------------Controls.vue-----------------')
+      console.log( typeof this.currentSong.title === 'undefined' ||  typeof this.selected.title === 'undefined')
+      if ( typeof this.currentSong.title === 'undefined' ||  typeof this.selected.title === 'undefined') {
+        console.log('1ere if')
+        console.log('currentSong')
+        console.log(this.currentSong.title)
+        console.log('selectedSong')
+        console.log(this.selectedSong.title)
+        console.log('this.songs')
+        console.log(this.songs[0])
         this.$emit('selected', this.songs[0])
       }
       if (this.currentSong !== this.selected && typeof this.selected.src !== 'undefined') {
+        console.log('2e if')
+        console.log('currentSong')
+        console.log(this.currentSong)
+        console.log('selectedSong')
+        console.log(this.selectedSong)
+        console.log('src')
+        console.log(this.selected.src)
         this.player.pause()
         this.player.src = require('@/assets/audio/' + this.selected.src)
       }
@@ -58,12 +74,17 @@ export default {
       this.player.pause()
     },
     next() {
+      // console.log('---------------Controls.vue-----------------')
       if (!this.shuffle) {
         this.index = this.songs.indexOf(this.currentSong)
+        // console.log('index')
+        // console.log(this.index)
         this.index++
         if (this.index >= this.songs.length) {
           this.index = 0;
         }
+        // console.log('this.songs[index]')
+        // console.log(this.songs[this.index])
         this.$emit('selected', this.songs[this.index])
         this.play()
       } else {

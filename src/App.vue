@@ -10,8 +10,6 @@
       >
         <router-link to="/">Player</router-link>
         |
-        <router-link to="/addsong">Ajouter une musique</router-link>
-        |
         <router-link to="/detail/0">Detail Artiste</router-link>
       </v-app-bar>
       <v-main>
