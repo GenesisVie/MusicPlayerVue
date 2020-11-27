@@ -144,11 +144,6 @@ export default {
     },
     changeSelected(val) {
       this.selectedSong = val
-      // console.log('---------------------Music.vue-----------------------')
-      // console.log('selectedSong')
-      // console.log(this.selectedSong.title)
-      // console.log('val')
-      // console.log(val.title)
     },
     changeCurrent(val) {
       this.currentSong = val
