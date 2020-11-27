@@ -1,6 +1,17 @@
 <template>
   <v-row dense>
     <v-col
+    cols="12"
+    >
+
+      <v-checkbox
+        label="Afficher les sons likés uniquement"
+        v-model="onlyLikes"
+        color="#1DB954"
+      >
+      </v-checkbox>
+    </v-col>
+    <v-col
         cols="12"
         v-for="(song, index) in songs" :key="index"
     >
@@ -35,8 +46,10 @@
         <v-btn
             color="white"
             icon
+            @click="addLike(index)"
         >
-          <v-icon>mdi-plus</v-icon>
+          <v-icon v-if="!isLiked(index)">mdi-heart-outline</v-icon>
+          <v-icon style="color: #1DB954" v-else >mdi-heart</v-icon>
         </v-btn>
       </v-card>
 
@@ -50,6 +63,12 @@ export default {
   props: {
     songs: Array
   },
+  data(){
+    return{
+      likedSongs: [],
+      onlyLikes: false
+    }
+  },
   methods: {
     choose(songName) {
       this.$emit('song', songName)
@@ -57,6 +76,27 @@ export default {
     goDetail(id) {
       this.$router.push({name: 'Detail',
         params: {id: id}})
+    },
+    addLike(id) {
+      if (!this.isLiked(id)){
+        this.likedSongs.push(this.songs[id])
+      }else{
+        this.likedSongs.splice(id,1)
+      }
+    },
+    isLiked(id) {
+      if (this.likedSongs.length > 0) {
+        return this.likedSongs.includes(this.songs[id], 0)
+      }
+    },
+  },
+  watch: {
+    onlyLikes(){
+      if (this.onlyLikes){
+        this.$emit('likedSongs', this.likedSongs)
+      }else{
+        this.$emit('likedSongs', [])
+      }
     }
   }
 }

@@ -77,7 +77,11 @@
         </v-card>
       </v-col>
       <v-col>
-        <ListSong @song="changeSong" :songs="songsList"></ListSong>
+        <ListSong
+            @song="changeSong"
+            @likedSongs="likedSongs"
+            :songs="songsList">
+        </ListSong>
       </v-col>
     </v-row>
   </div>
@@ -132,16 +136,19 @@ export default {
     filterSongs(newSongs) {
       this.filteredSongs = newSongs
     },
+    likedSongs(likedSong){
+      this.filteredSongs = likedSong
+    },
     changePlaying(val) {
       this.isPlaying = val
     },
     changeSelected(val) {
       this.selectedSong = val
-      console.log('---------------------Music.vue-----------------------')
-      console.log('selectedSong')
-      console.log(this.selectedSong.title)
-      console.log('val')
-      console.log(val.title)
+      // console.log('---------------------Music.vue-----------------------')
+      // console.log('selectedSong')
+      // console.log(this.selectedSong.title)
+      // console.log('val')
+      // console.log(val.title)
     },
     changeCurrent(val) {
       this.currentSong = val
