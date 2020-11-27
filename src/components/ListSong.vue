@@ -29,11 +29,11 @@
         <div class="d-flex flex-no-wrap justify-space-between">
           <div>
             <v-card-title
-                class="headline"
+                class=" text-justify"
                 v-text="song.title"
             ></v-card-title>
 
-            <v-card-subtitle v-text="song.artist"></v-card-subtitle>
+            <v-card-subtitle class="text-justify" v-text="song.artist"></v-card-subtitle>
           </div>
           <v-avatar
               class="ma-3"

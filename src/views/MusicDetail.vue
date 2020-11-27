@@ -44,7 +44,7 @@ export default {
       artist: {}
     }
   },
-  mounted() {
+  created() {
     this.artist = this.songs[this.$route.params.id]
   }
 }

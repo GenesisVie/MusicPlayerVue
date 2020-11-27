@@ -127,7 +127,7 @@ export default {
     songsList() {
       if (this.filteredSongs.length > 0) {
         return this.filteredSongs
-      }else{
+      } else {
         return this.songs
       }
     }
@@ -136,7 +136,7 @@ export default {
     filterSongs(newSongs) {
       this.filteredSongs = newSongs
     },
-    likedSongs(likedSong){
+    likedSongs(likedSong) {
       this.filteredSongs = likedSong
     },
     changePlaying(val) {
@@ -190,8 +190,9 @@ export default {
       }
     })
   },
-  beforeDestroy() {
-    this.player.paused
+  destroyed() {
+    this.player.pause()
+    this.player.src = ''
   }
 }
 </script>
