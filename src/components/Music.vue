@@ -103,6 +103,7 @@ import Controls from "@/components/Controls";
 import jsonSongs from "@/data/songs.json"
 import Search from "@/components/Search";
 import KnobControl from 'vue-knob-control'
+import shake from 'shake.js'
 
 export default {
   name: "Music",
@@ -199,6 +200,10 @@ export default {
         this.$refs.controls.next()
       }
     })
+    shake.start();
+    window.addEventListener('shake', () => {
+      this.$refs.controls.next()
+    }, false);
   },
   destroyed() {
     this.player.pause()
