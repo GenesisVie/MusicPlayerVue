@@ -9,8 +9,8 @@
                  id="nav" class="d-flex align-center"
       >
         <router-link to="/">Player</router-link>
-        |
-        <router-link to="/detail/0">Detail Artiste</router-link>
+        <v-spacer>|</v-spacer>
+        <router-link to="/detail/0"> Artiste</router-link>
       </v-app-bar>
       <v-main>
         <router-view/>

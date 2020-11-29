@@ -36,14 +36,17 @@ export default {
   watch: {
     selectedSong:{
       handler(){
+        this.pause()
         this.selected = this.selectedSong
         this.play()
       }
-    }
+    },
   },
   methods: {
     play() {
-      if ( typeof this.currentSong.title === 'undefined' ||  typeof this.selected.title === 'undefined') {
+      if ( typeof this.currentSong.title === 'undefined' &&  typeof this.selected.title !== 'undefined') {
+        this.player.src = require('@/assets/audio/' + this.selected.src)
+      }else if ( typeof this.currentSong.title === 'undefined' ||  typeof this.selected.title === 'undefined') {
         this.$emit('selected', this.songs[0])
       }
       if (this.currentSong !== this.selected && typeof this.selected.src !== 'undefined') {

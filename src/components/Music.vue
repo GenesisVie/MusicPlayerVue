@@ -64,13 +64,23 @@
                 </v-btn>
               </v-col>
               <v-col cols="6">
-                <v-slider
-                    color="#1DB954"
+                <knob-control
+                    :strokeWidth="14"
+                    :size="90"
+                    :min="0"
+                    :max="100"
                     v-model="volume"
-                    prepend-icon="mdi-volume-high"
-                    max="10"
-                    min="0"
-                ></v-slider>
+                    primary-color="#1DB954"
+                    text-color="#1DB954"
+                >
+                </knob-control>
+<!--                <v-slider-->
+<!--                    color="#1DB954"-->
+<!--                    v-model="volume"-->
+<!--                    prepend-icon="mdi-volume-high"-->
+<!--                    max="10"-->
+<!--                    min="0"-->
+<!--                ></v-slider>-->
               </v-col>
             </v-row>
           </v-card-actions>
@@ -92,17 +102,18 @@ import ListSong from "@/components/ListSong";
 import Controls from "@/components/Controls";
 import jsonSongs from "@/data/songs.json"
 import Search from "@/components/Search";
+import KnobControl from 'vue-knob-control'
 
 export default {
   name: "Music",
-  components: {Search, Controls, ListSong},
+  components: {Search, Controls, ListSong, KnobControl},
   data() {
     return {
       isPlaying: false,
       selectedSong: {},
       currentSong: {},
       player: new Audio(),
-      volume: 10,
+      volume: 100,
       duration: 0,
       currentTime: 0,
       shuffle: false,
@@ -151,7 +162,6 @@ export default {
     changeSong(songName) {
       this.$refs.controls.pause()
       this.selectedSong = songName
-      this.$refs.controls.play()
     },
     advanceTime() {
       this.player.currentTime = this.currentTime
@@ -165,7 +175,7 @@ export default {
   },
   watch: {
     volume(valVolume) {
-      this.player.volume = valVolume * 0.1
+      this.player.volume = valVolume * 0.01
     },
     duration(val) {
       this.duration = val

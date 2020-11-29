@@ -22,7 +22,7 @@
         <v-btn
             color="white"
             icon
-            @click="goDetail(index)"
+            @click.stop="goDetail(index)"
         >
           <v-icon>mdi-information</v-icon>
         </v-btn>
@@ -46,7 +46,7 @@
         <v-btn
             color="white"
             icon
-            @click="addLike(index)"
+            @click.stop="addLike(index)"
         >
           <v-icon v-if="!isLiked(index)">mdi-heart-outline</v-icon>
           <v-icon style="color: #1DB954" v-else>mdi-heart</v-icon>
