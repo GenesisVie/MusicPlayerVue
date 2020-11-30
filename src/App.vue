@@ -10,7 +10,7 @@
       >
         <router-link to="/">Player</router-link>
         <v-spacer>|</v-spacer>
-        <router-link to="/detail/1"> Artiste</router-link>
+        <router-link to="/detail/1"> Découvrir Oussanousava</router-link>
       </v-app-bar>
       <v-main>
         <router-view/>
